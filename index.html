@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My DevOps Tutorials</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-bg: #0f1117; --color-surface: #161b22; 
+    --color-border: #30363d; --color-text: #e6edf3; 
+    --color-text-muted: #8b949e; --color-primary: #58a6ff;
+    --font-body: "Inter", sans-serif;
+  }
+  body {
+    font-family: var(--font-body); background: var(--color-bg); 
+    color: var(--color-text); line-height: 1.6; padding: 40px 20px;
+    max-width: 800px; margin: 0 auto;
+  }
+  .header { text-align: center; margin-bottom: 48px; }
+  .header h1 { font-size: 2.5rem; margin-bottom: 8px; }
+  .header p { color: var(--color-text-muted); }
+  
+  .grid { display: flex; flex-direction: column; gap: 16px; }
+  
+  .card {
+    display: block; background: var(--color-surface);
+    border: 1px solid var(--color-border); border-radius: 8px;
+    padding: 24px; text-decoration: none; color: inherit;
+    transition: all 0.2s ease-in-out;
+  }
+  .card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+  }
+  .card h2 { color: var(--color-primary); font-size: 1.25rem; margin-bottom: 8px; }
+  .card p { color: var(--color-text-muted); font-size: 0.95rem; margin: 0; }
+  .date { font-size: 0.8rem; color: #637089; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 8px;}
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>DevOps & Self-Hosting Guides</h1>
+    <p>Companion resources and commands for my YouTube tutorials.</p>
+  </div>
+
+  <div class="grid">
+    <!-- Link to the RustDesk Tutorial -->
+    <a href="rustdesk.html" class="card">
+      <span class="date">Latest Guide</span>
+      <h2>Self-Hosted RustDesk Guide</h2>
+      <p>Deploy your own private, blazing-fast remote desktop server on DigitalOcean.</p>
+    </a>
+
+    <!-- Link to the Hermes Tutorial -->
+    <a href="hermes.html" class="card">
+      <span class="date">Previous Guide</span>
+      <h2>Hermes Agent as a DevOps Engineer</h2>
+      <p>Commands, configurations, and scripts to build your auto-healing AI agent.</p>
+    </a>
+  </div>
+
+</body>
+</html>
