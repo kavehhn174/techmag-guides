@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hermes Agent — DevOps Tutorial Resources</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root,[data-theme="dark"]{
+  --color-bg:#0f1117;--color-surface:#161b22;--color-surface-2:#1c2230;
+  --color-border:#30363d;--color-text:#e6edf3;--color-text-muted:#8b949e;
+  --color-primary:#58a6ff;--color-primary-dim:#1f3a5f;--color-green:#3fb950;
+  --color-orange:#f0883e;--color-purple:#bc8cff;--color-red:#ff7b72;
+  --font-body:"Inter",sans-serif;--font-mono:"JetBrains Mono",monospace;
+  --radius:8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;}
+body{font-family:var(--font-body);font-size:15px;color:var(--color-text);background:var(--color-bg);line-height:1.6;padding:24px 16px;}
+.page{max-width:860px;margin:0 auto;}
+.header{text-align:center;padding:64px 0 40px;}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--color-primary-dim);color:var(--color-primary);border:1px solid rgba(88,166,255,.3);border-radius:100px;padding:4px 14px;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:16px;}
+.header h1{font-size:clamp(1.5rem,4vw,2.2rem);font-weight:600;margin-bottom:12px;letter-spacing:-.02em;}
+.header p{color:var(--color-text-muted);max-width:55ch;margin:0 auto;font-size:14px;}
+.toc{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius);padding:20px;margin-bottom:40px;}
+.toc h3{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:12px;}
+.toc ol{padding-left:20px;display:flex;flex-direction:column;gap:4px;}
+.toc ol li a{color:var(--color-text-muted);text-decoration:none;font-size:13px;transition:color .15s;}
+.toc ol li a:hover{color:var(--color-primary);}
+.section-label{display:flex;align-items:center;gap:12px;margin:40px 0 12px;}
+.section-label .dot{width:8px;height:8px;border-radius:50%;background:var(--color-primary);flex-shrink:0;}
+.section-label span{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-muted);}
+.section-label::after{content:"";flex:1;height:1px;background:var(--color-border);}
+.step-heading{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.step-num{background:var(--color-primary-dim);color:var(--color-primary);border:1px solid rgba(88,166,255,.3);border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+.step-heading h2{font-size:16px;font-weight:600;}
+.desc{color:var(--color-text-muted);font-size:13px;margin-bottom:16px;line-height:1.65;}
+.code-block{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius);overflow:hidden;margin-bottom:16px;}
+.code-header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid var(--color-border);}
+.code-label{font-size:12px;font-weight:600;color:var(--color-text-muted);display:flex;align-items:center;gap:8px;}
+.lang-tag{background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:4px;padding:2px 8px;font-size:11px;color:var(--color-primary);font-family:var(--font-mono);}
+.copy-btn{background:var(--color-surface-2);border:1px solid var(--color-border);color:var(--color-text-muted);border-radius:6px;padding:4px 12px;font-size:12px;font-family:var(--font-body);cursor:pointer;transition:all .15s;}
+.copy-btn:hover{color:var(--color-text);border-color:var(--color-primary);}
+.copy-btn.copied{color:var(--color-green);border-color:var(--color-green);}
+pre{padding:16px;overflow-x:auto;font-family:var(--font-mono);font-size:13px;line-height:1.7;tab-size:2;}
+.note{background:var(--color-primary-dim);border:1px solid rgba(88,166,255,.3);border-radius:var(--radius);padding:12px 16px;font-size:13px;color:var(--color-text-muted);margin-bottom:16px;}
+.note strong{color:var(--color-primary);}
+.warn{background:rgba(240,136,62,.12);border-color:rgba(240,136,62,.3);}
+.warn strong{color:var(--color-orange);}
+.ic{background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:4px;padding:1px 6px;font-family:var(--font-mono);font-size:12px;color:var(--color-purple);}
+.footer{text-align:center;padding:64px 0 40px;color:var(--color-text-muted);font-size:13px;border-top:1px solid var(--color-border);margin-top:64px;}
+.footer a{color:var(--color-primary);text-decoration:none;}
+.c{color:#637089;}.k{color:#ff7b72;}.v{color:#a5d6ff;}.s{color:#f0883e;}
+@media(max-width:600px){pre{font-size:11.5px;}}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+  <div class="badge">📺 Tutorial Resources</div>
+  <h1>Hermes Agent as a DevOps Engineer</h1>
+  <p>All commands, configurations, and scripts from the video — in one place. Copy and paste directly into your terminal.</p>
+</div>
+
+<div class="toc">
+  <h3>Contents</h3>
+  <ol>
+    <li><a href="#env">.env Configuration Template</a></li>
+    <li><a href="#create-env">Create Hermes .env on Server</a></li>
+    <li><a href="#telegram">Get Your Telegram User ID</a></li>
+    <li><a href="#install">Install Hermes Agent</a></li>
+    <li><a href="#skill">DevOps Engineer Skill File</a></li>
+    <li><a href="#deploy">Deploy Command (Telegram)</a></li>
+    <li><a href="#restart">Restart Hermes Gateway</a></li>
+    <li><a href="#watchdog">Create Watchdog Script</a></li>
+    <li><a href="#service">Watchdog Systemd Service</a></li>
+    <li><a href="#timer">Watchdog Timer</a></li>
+    <li><a href="#enable">Enable &amp; Start Watchdog</a></li>
+    <li><a href="#crash">Test — Crash the Website</a></li>
+  </ol>
+</div>
+
+<div id="env">
+  <div class="section-label"><div class="dot"></div><span>Step 1</span></div>
+  <div class="step-heading"><div class="step-num">1</div><h2>.env Configuration Template</h2></div>
+  <p class="desc">Prepare this on your own computer first, fill in your tokens, then paste it into the server file in Step 2.</p>
+  <div class="note warn"><strong>⚠️ Reminder:</strong> Replace all placeholder values with your own API tokens. Never share your real tokens publicly.</div>
+  <div class="code-block">
+    <div class="code-header"><span class="code-label"><span class="lang-tag">.env</span> Configuration Template</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <pre><span class="c"># ── NVIDIA NIM ─────────────────────────────────</span>
+<span class="k">NVIDIA_API_KEY</span>=<span class="v">YOUR_NVIDIA_API_KEY</span>
+
+<span class="c"># ── Telegram ───────────────────────────────────</span>
+<span class="k">TELEGRAM_BOT_TOKEN</span>=<span class="v">YOUR_TELEGRAM_BOT_TOKEN</span>
+<span class="k">TELEGRAM_ALLOWED_USERS</span>=<span class="v">YOUR_TELEGRAM_USER_ID</span>
+<span class="k">TELEGRAM_HOME_CHANNEL</span>=<span class="v">YOUR_TELEGRAM_USER_ID</span>
+
+<span class="c"># ── GitHub ─────────────────────────────────────</span>
+<span class="k">GITHUB_TOKEN</span>=<span class="v">YOUR_GITHUB_PAT_TOKEN</span>
+
+<span class="c"># ── Cloudflare ─────────────────────────────────</span>
+<span class="k">CLOUDFLARE_API_TOKEN</span>=<span class="v">YOUR_CLOUDFLARE_API_TOKEN</span>
+<span class="k">CLOUDFLARE_ZONE_ID</span>=<span class="v">YOUR_CLOUDFLARE_ZONE_ID</span></pre>
+  </div>
+</div>
+
+<div id="create-env">
+  <div class="section-label"><div class="dot"></div><span>Step 2</span></div>
+  <div class="step-heading"><div class="step-num">2</div><h2>Create Hermes .env File on the Server</h2></div>
+  <p class="desc">SSH into your VPS and run these commands. Paste your completed .env content, then save with <span class="ic">Ctrl+X → Y → Enter</span>.</p>
+  <div class="code-block">
+    <div class="code-header"><span class="code-label"><span class="lang-tag">bash</span></span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <pre>sudo mkdir ~/.hermes
+sudo nano ~/.hermes/.env</pre>
+  </div>
+</div>
+
+<div id="telegram">
+  <div class="section-label"><div class="dot"></div><span>Step 3</span></div>
+  <div class="step-heading"><div class="step-num">3</div><h2>Get Your Telegram User ID</h2></div>
+  <p class="desc">After creating your bot and sending it any message, open this URL in your browser. Replace YOUR_TOKEN with your actual bot token. Your user ID appears in the JSON response.</p>
+  <div class="code-block">
+    <div class="code-header"><span class="code-label"><span class="lang-tag">URL</span> Open in browser</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <pre>https://api.telegram.org/botYOUR_TOKEN/getUpdates</pre>
+  </div>
+</div>
+
+<div id="install">
+  <div class="section-label"><div class="dot"></div><span>Step 4</span></div>
+  <div class="step-heading"><div class="step-num">4</div><h2>Install Hermes Agent</h2></div>
+  <p class="desc">Run this one-liner on your server. May take a few minutes. Once done, the setup wizard launches automatically — or relaunch with <span class="ic">hermes setup</span>.</p>
+  <div class="code-block">
+    <div class="code-header"><span class="code-label"><span class="lang-tag">bash</span> Installation</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <pre>curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash</pre>
+  </div>
+</div>
+
+<div id="skill">
+  <div class="section-label"><div class="dot"></div><span>Step 5</span></div>
+  <div class="step-heading"><div class="step-num">5</div><h2>DevOps Engineer Skill File</h2></div>
+  <p class="desc">Open the skill file with nano, paste the full content below, then save.</p>
+  <div class="code-block">
+    <div class="code-header"><span class="code-label"><span class="lang-tag">bash</span> Open skill file</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <pre>nano ~/.hermes/skills/devops_engineer.md</pre>
+  </div>
+  <div class="code-block">
+    <div class="code-header"><span class="code-label"><span class="lang-tag">markdown</span> Paste this inside the file</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <pre><span class="s"># Skill: Auto-Healing SRE &amp; Node.js Deployment</span>
+
+<span class="s">## Persona &amp; Description</span>
+You are a Senior Site Reliability Engineer (SRE) and DevOps expert. Your job
+is to deploy a Node.js/EJS web application, configure the infrastructure via
+terminal commands, and actively monitor it for crashes. You operate
+autonomously but must keep the user highly informed.
+
+<span class="s">## Triggers</span>
+- "Deploy the website"
+- "Start the auto-healing loop"
+- "Execute the Auto-Healing Protocol"
+- Any prompt indicating the website is down with a 500-level status code.
+
+<span class="s">## Working Directory</span>
+Always use `/var/www/my-node-app` as the primary directory.
+
+---
+
+<span class="s">## 1. Communication Protocol (MANDATORY)</span>
+You are operating via a Telegram gateway. You MUST NOT execute major terminal
+commands silently. Before any major milestone, send a brief Telegram message
+explaining what you are about to do.
+
+Notify the user before:
+1. Authenticating and cloning/pulling the GitHub repository.
+2. Generating a Dockerfile or initiating a Docker build.
+3. Making API calls to Cloudflare to map the subdomain.
+4. Configuring Nginx and requesting SSL certificates via Certbot.
+5. Detecting a health check failure (immediately report the crash).
+6. Pushing fixed code to GitHub and rebuilding the container.
+
+Example: "Starting step 1: Cloning the GitHub repository to /var/www/my-node-app..."
+
+---
+
+<span class="s">## 2. Autonomy &amp; Persistence</span>
+1. Uninterrupted Execution: Once a deployment or fix starts, execute all steps
+   sequentially without waiting for confirmation between steps.
+2. Handle Timeouts: If docker build takes a long time, do not assume failure.
+   Check the process status and continue.
+3. Port Conflicts: If port 3000 is in use, find it with
+   `netstat -tulpn | grep :3000` and kill it with `fuser -k 3000/tcp`.
+4. Definition of Done: A task is only Done when the website returns HTTP 200
+   at the public URL. Fix any errors encountered and continue until live.
+
+---
+
+<span class="s">## 3. Step-by-Step Deployment Protocol</span>
+Execute in this exact order:
+
+1. Source Code: Notify user, clone the GitHub repo into the working directory
+   using $GITHUB_TOKEN for authentication.
+2. Dockerization: Notify user. Check for a Dockerfile. If none exists, generate
+   a standard Node.js Dockerfile. Build: `docker build -t my-website .`
+   Run: `docker run -d -p 3000:3000 --name my-website my-website`
+3. Cloudflare DNS: Notify user. Use curl with $CLOUDFLARE_API_TOKEN to create
+   an A record mapping the subdomain to this server's public IP.
+4. Nginx &amp; HTTPS: Notify user. Create a server block in
+   /etc/nginx/sites-available/ pointing to http://127.0.0.1:3000. Enable,
+   test, and restart Nginx. Run:
+   `certbot --nginx -n --agree-tos -d &lt;subdomain&gt;`
+5. Verification: Send a Telegram message confirming the site is live (200 OK).
+
+---
+
+<span class="s">## 4. Auto-Healing Protocol (Crash Recovery)</span>
+If triggered by the watchdog because the site crashed, execute in exact order:
+
+1. Notify: "Alert: The website has crashed. I am investigating the logs now."
+2. Diagnose: Run `docker logs --tail 50 my-website` to find the exception.
+3. Code Fix: Read source files in the working directory, find the bug, fix it.
+4. Explain: Send a Telegram message describing the bug and the fix applied.
+5. Version Control:
+   `git add .`
+   `git commit -m "Auto-fix crash: [brief description]"`
+   `git push`
+6. Redeploy:
+   `docker stop my-website`
+   `docker rm my-website`
+   `docker build -t my-website .`
+   `docker run -d -p 3000:3000 --name my-website my-website`
+7. Final: Verify 200 OK, then send:
+   "Redeployment complete. The site is back online and stable."</pre>
+  </div>
+</div>
+
+<div id="deploy">
+  <div class="section-label"><div class="dot"></div><span>Step 6</span></div>
+  <div class="step-heading"><div class="step-num">6</div><h2>Deploy Command — Send via Telegram</h2></div>
+  <p class="desc">Send this message to your Hermes bot on Telegram to kick off the full automated deployment.</p>
+  <div class="code-block">
+    <div class="code-header"><span class="code-label"><span class="lang-tag">telegram</span> Message to send your bot</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <pre>Deploy the project https://github.com/kavehhn174/faulty-website on the server using docker, make sure to configure Nginx, and obtain the domain test.kavehhn.tech from cloudflare and get an ssl certificate as well. Do everything yourself, you have access to the cloudflare dns token, so create the domain yourself and connect it to the website.</pre>
+  </div>
+</div>
+
+<div id="restart">
+  <div class="section-label"><div class="dot"></div><span>Step 7</span></div>
+  <div class="step-heading"><div class="step-num">7</div><h2>Restart Hermes Gateway</h2></div>
+  <p class="desc">If Hermes becomes unresponsive or you update the config, restart the gateway with this command.</p>
+  <div class="code-block">
+    <div class="code-header"><span class="code-label"><span class="lang-tag">bash</span></span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <pre>sudo systemctl restart hermes-gateway</pre>
+  </div>
+</div>
+
+<div id="watchdog">
+  <div class="section-label"><div class="dot"></div><span>Step 8</span></div>
+  <div class="step-heading"><div class="step-num">8</div><h2>Create the Watchdog Script</h2></div>
+  <p class="desc">Run the full block at once. This creates a script that checks your site every 30 seconds and summons Hermes if it goes down.</p>
+  <div class="code-block">
+    <div class="code-header"><span class="code-label"><span class="lang-tag">bash</span> Create watchdog.sh</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <pre>cat &lt;&lt; 'EOF' &gt; /root/watchdog.sh
+#!/bin/bash
+
+URL="https://test.kavehhn.tech"
+
+STATUS=$(curl -s -o /dev/null -w "%{http_code}" $URL)
+
+if [ "$STATUS" -eq 200 ]; then
+    echo "$(date): Website is OK - Status 200"
+else
+    if ! pgrep -f "hermes -z" &gt; /dev/null; then
+        echo "$(date): CRASH DETECTED - Status $STATUS. Summoning Hermes..."
+        hermes chat -q "The website $URL is down with status $STATUS. Execute the Auto-Healing Protocol in your skills immediately. Fix the code, and redeploy the Docker container."
+    else
+        echo "$(date): Crash detected - Status $STATUS - Hermes is already working."
+    fi
+fi
+EOF</pre>
+  </div>
+  <div class="code-block">
+    <div class="code-header"><span class="code-label"><span class="lang-tag">bash</span> Make executable</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <pre>chmod +x /root/watchdog.sh</pre>
+  </div>
+</div>
+
+<div id="service">
+  <div class="section-label"><div class="dot"></div><span>Step 9</span></div>
+  <div class="step-heading"><div class="step-num">9</div><h2>Create Watchdog Systemd Service</h2></div>
+  <div class="code-block">
+    <div class="code-header"><span class="code-label"><span class="lang-tag">bash</span> Create service file</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <pre>cat &lt;&lt;EOF &gt; /etc/systemd/system/website-watchdog.service
+[Unit]
+Description=Website Health Check Watchdog
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /root/watchdog.sh
+User=root
+
+[Install]
+WantedBy=multi-user.target
+EOF</pre>
+  </div>
+</div>
+
+<div id="timer">
+  <div class="section-label"><div class="dot"></div><span>Step 10</span></div>
+  <div class="step-heading"><div class="step-num">10</div><h2>Create Watchdog Timer</h2></div>
+  <div class="code-block">
+    <div class="code-header"><span class="code-label"><span class="lang-tag">bash</span> Create timer file</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <pre>cat &lt;&lt;EOF &gt; /etc/systemd/system/website-watchdog.timer
+[Unit]
+Description=Run Website Watchdog every 30 seconds
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=30s
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target
+EOF</pre>
+  </div>
+</div>
+
+<div id="enable">
+  <div class="section-label"><div class="dot"></div><span>Step 11</span></div>
+  <div class="step-heading"><div class="step-num">11</div><h2>Enable &amp; Start the Watchdog</h2></div>
+  <div class="code-block">
+    <div class="code-header"><span class="code-label"><span class="lang-tag">bash</span> Reload, enable &amp; start</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <pre>systemctl daemon-reload
+systemctl enable website-watchdog.timer
+systemctl start website-watchdog.timer</pre>
+  </div>
+  <div class="code-block">
+    <div class="code-header"><span class="code-label"><span class="lang-tag">bash</span> Monitor live logs</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <pre>journalctl -u website-watchdog.service -f</pre>
+  </div>
+</div>
+
+<div id="crash">
+  <div class="section-label"><div class="dot"></div><span>Step 12</span></div>
+  <div class="step-heading"><div class="step-num">12</div><h2>Test — Crash the Website</h2></div>
+  <p class="desc">Run from your local machine to trigger the crash endpoint. Keep the watchdog log terminal open in another window to watch it react in real time.</p>
+  <div class="code-block">
+    <div class="code-header"><span class="code-label"><span class="lang-tag">bash</span> Run from your local machine</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <pre>curl -X POST 'https://test.kavehhn.tech/products' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'name=Crash demo' \
+  --data-urlencode 'price=1' \
+  --data-urlencode 'description=Missing third tag' \
+  --data-urlencode 'tags=one' \
+  --data-urlencode 'tags=two'</pre>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Resources for the <strong>Hermes Agent as a DevOps Engineer</strong> tutorial by Kaveh &nbsp;·&nbsp;
+  <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer">Hermes Agent on GitHub</a></p>
+</div>
+</div>
+<script>
+function copyCode(btn){
+  const pre=btn.closest(".code-block").querySelector("pre");
+  navigator.clipboard.writeText(pre.innerText).then(()=>{
+    btn.textContent="Copied!";btn.classList.add("copied");
+    setTimeout(()=>{btn.textContent="Copy";btn.classList.remove("copied");},2000);
+  });
+}
+</script>
+</body>
+</html>
